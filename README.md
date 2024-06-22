@@ -1,88 +1,29 @@
-/* Basic styling for body and main content */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-}
-
-/* Sidebar container */
-.sidebar {
-    height: 100vh;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    color: white;
-    padding-top: 20px;
-    transition: width 0.3s;
-}
-
-/* Sidebar header */
-.sidebar .header {
-    padding: 15px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #444;
-}
-
-/* Sidebar links */
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #575757;
-}
-
-/* Toggle button for sidebar */
-.toggle-btn {
-    position: absolute;
-    top: 15px;
-    left: 250px;
-    font-size: 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: left 0.3s;
-}
-
-.toggle-btn.collapsed {
-    left: 0;
-}
-
-/* Collapsed sidebar */
-.sidebar.collapsed {
-    width: 60px;
-}
-
-.sidebar.collapsed .header {
-    display: none;
-}
-
-.sidebar.collapsed a {
-    text-align: center;
-    padding: 10px;
-}
-
-.sidebar.collapsed a span {
-    display: none;
-}
-
-.sidebar.collapsed a::before {
-    content: attr(data-icon);
-    font-size: 18px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">Menu</div>
+        <a href="#home" data-icon="🏠"><span>Home</span></a>
+        <a href="#services" data-icon="💼"><span>Services</span></a>
+        <a href="#about" data-icon="ℹ️"><span>About</span></a>
+        <a href="#contact" data-icon="📞"><span>Contact</span></a>
+    </div>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <main>
+        <h1>Welcome to Our Website</h1>
+        <p>Main content goes here...</p>
+    </main>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.toggle-btn').classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
